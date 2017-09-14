@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'react_on_rails', '~> 9.0.1'
 gem 'webpack-rails', '~> 0.9.10'
 gem 'react_on_rails', '~> 6.8.1'
+gem 'haml'
+gem 'erb2haml'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'

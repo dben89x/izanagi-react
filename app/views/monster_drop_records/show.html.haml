@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %strong Count:
+  = @monster_drop_record.count
+= link_to 'Edit', edit_monster_drop_record_path(@monster_drop_record)
+|
+= link_to 'Back', monster_drop_records_path

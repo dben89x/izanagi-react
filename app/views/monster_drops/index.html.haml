@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Monster Drops
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @monster_drops.each do |monster_drop|
+      %tr
+        %td= link_to 'Show', monster_drop
+        %td= link_to 'Edit', edit_monster_drop_path(monster_drop)
+        %td= link_to 'Destroy', monster_drop, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Monster Drop', new_monster_drop_path

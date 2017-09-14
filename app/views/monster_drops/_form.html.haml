@@ -1,0 +1,11 @@
+= form_for(monster_drop) do |f|
+  - if monster_drop.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(monster_drop.errors.count, "error")
+        prohibited this monster_drop from being saved:
+      %ul
+        - monster_drop.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit

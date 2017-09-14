@@ -1,0 +1,39 @@
+%p#notice= notice
+%h1 Records
+-# = link_to 'New Record', new_record_path
+-# =react_component "RecordForm", props: {recordInputs: @available_drops}, prerender: false
+%br
+.record
+	%h4
+		Average results of treasure chick drop rate analysis:
+
+	Sample size:
+	%strong="#{@average_sample_size.floor} chicks."
+	%hr
+	-@averages.each do |average|
+		-average.each do |key, value|
+			="#{key}:"
+			%strong="#{number_with_precision(value[:ratio], precision: 2)} %"
+			%br
+
+.records.col-md-12
+	- @records.each do |record|
+		.record.col-md-4
+			Monster:
+			%strong=record.monster.name
+			%br
+
+			Sample size:
+			%strong=record.sample_size
+			%br
+
+			Uploader:
+			%strong= record.uploader
+
+			%hr
+
+			-record.monster_drop_records.each do |mdr|
+				-ratio = mdr.count.to_f/record.sample_size.to_f
+				-percent = ratio * 100
+				="#{mdr.name} (<b>#{mdr.count}</b>) - <b>#{number_with_precision(percent, precision: 2)}</b>%".html_safe
+				%br

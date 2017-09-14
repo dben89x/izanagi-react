@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+	%strong Uploader:
+	= @record.uploader
+	%hr
+
+	%h4="Sample size: #{@record.sample_size}"
+	-@record.monster_drop_records.each do |mdr|
+		-ratio = mdr.count.to_f/@record.sample_size.to_f
+		-percent = ratio * 100
+		="#{mdr.name} (#{mdr.count}) - #{number_with_precision(percent, precision: 2)}%"
+		%br
+
+	%hr
+
+= link_to 'Back', records_path

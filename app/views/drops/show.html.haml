@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @drop.name
+= link_to 'Edit', edit_drop_path(@drop)
+|
+= link_to 'Back', drops_path

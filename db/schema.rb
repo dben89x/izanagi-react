@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914023016) do
+ActiveRecord::Schema.define(version: 20170914065136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 20170914023016) do
   create_table "records", force: :cascade do |t|
     t.integer  "monster_id"
     t.string   "uploader"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "sample_size"
+    t.integer  "elapsed_minutes"
     t.index ["monster_id"], name: "index_records_on_monster_id", using: :btree
   end
 

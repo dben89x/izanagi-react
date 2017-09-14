@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @monster.name
+= link_to 'Edit', edit_monster_path(@monster)
+|
+= link_to 'Back', monsters_path

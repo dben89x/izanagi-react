@@ -1,10 +1,4 @@
 {
-	"dependencies": { },
-	"engines": {
-		"node": "7.8.0",
-		"npm": "4.4.4",
-		"yarn": "0.22.0"
-	},
 	"scripts": {
 		"postinstall": "cd client && yarn install",
 		"lint": "cd client && yarn run lint --silent",
@@ -15,5 +9,8 @@
 	"cacheDirectories": [
 		"node_modules",
 		"client/node_modules"
-	]
+	],
+	"dependencies": {
+		"react-on-rails": "^9.0.2"
+	}
 }

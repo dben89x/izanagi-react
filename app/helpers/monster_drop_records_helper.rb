@@ -1,0 +1,2 @@
+module MonsterDropRecordsHelper
+end

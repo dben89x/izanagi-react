@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Monster Drops</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monster_drops.each do |monster_drop| %>
+      <tr>
+        <td><%= link_to 'Show', monster_drop %></td>
+        <td><%= link_to 'Edit', edit_monster_drop_path(monster_drop) %></td>
+        <td><%= link_to 'Destroy', monster_drop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monster Drop', new_monster_drop_path %>

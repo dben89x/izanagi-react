@@ -1,0 +1,2 @@
+class MonsterDrop < ApplicationRecord
+end

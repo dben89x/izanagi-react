@@ -1,5 +1,7 @@
-{	"engines": {
+{
+	"engines": {
 		"node": "6.9.0",
+	},
 	"scripts": {
 		"postinstall": "cd client && yarn install",
 		"lint": "cd client && yarn run lint --silent",
@@ -7,8 +9,5 @@
 		"build:production": "cd client && yarn run build:production --silent",
 		"build:development": "cd client && yarn run build:development --silent"
 	},
-	"cacheDirectories": [
-		"node_modules",
-		"client/node_modules"
-	],
+	"cacheDirectories": [ "node_modules", "client/node_modules" ]
 }

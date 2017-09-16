@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.3.0
+script: npm install -g yarn
+deploy:
+  provider: heroku
+  api_key:
+    secure: GXTlB2LeK8t28p1XzOSW4dIUXzCRt2RR6FZ9ny01AWAzB4Pov4cnxTzysAcBKC4gQMHPocrzVTjDSIifqPGFNF9Yjz5CO7bmPmQbadCr+uHqkwO/nQoKOrpAbxKb4O0+rKFV+gvMJqaAwvYYa2A0Z8Am6S52evkeDIqc9j12XkS908CoyUrJJRCZJphHDF22/yP6u/sMLeVDgBo6fWUKu+++Ff+OojCiHEYWR6GibTzB7f05/C1re+WYbb4vQdrCZ9hOuqHV90ckESBpt6LW4PDJbuWf6wy1qVWxuwoHRzrwHO/zPPFVPyw1SWU5flbSDu3LZ3QxfrLlV0KPCOuxnB+LBDEh0f2SNHA+RHY3J1mHMU7OSjnIR/A3cjXYrNnNRqvFLg9NRJ9PpkGKGvm0XEiLVp49oEfA5+soptuCVkeeeLVciHcVuJyIoxnkNrwNR1G7m5uNxM1JiBR31lzypBt2uAiVFUXwzHUQasft3UVVvB9Y0K//9QL1WFZnoCRpcihVb8cox/+7l5rd5yl7UmZ8McK+bxaD176SFstofpV0otfmaG6IYEyTdTEPGVLivKnhkMvMWb8zPfp9fEW0XqxjLEUAHfM4h69uDtROzwA+5ExUlz7jXepUCs8AD0OoRJgL29LMBMHmdhHlXSpdU5MgpiXAzHGT0VLm8kGSm8Y=
+  run:
+    - "rake db:migrate"
+    - "rake cleanup"
+  app:
+    prod: izanagi-stats
+  on:
+    repo: dben89x/izanagi-react
+notifications:
+  email: false

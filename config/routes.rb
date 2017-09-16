@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	root 'home#index'
+	root 'records#index'
 	resources :monster_drop_records
 	resources :records
 	resources :monster_drops

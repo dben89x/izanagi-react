@@ -1,16 +1,13 @@
 %p#notice= notice
 %h1 Drops
 %table
-  %thead
-    %tr
-      %th Name
-      %th{:colspan => "3"}
-  %tbody
-    - @drops.each do |drop|
-      %tr
-        %td= drop.name
-        %td= link_to 'Show', drop
-        %td= link_to 'Edit', edit_drop_path(drop)
-        %td= link_to 'Destroy', drop, method: :delete, data: { confirm: 'Are you sure?' }
+	%thead
+		%tr
+			%th Name
+			%th{:colspan => "3"}
+	%tbody
+		- @drops.each do |drop|
+			%tr
+				%td= drop.name
 %br/
 = link_to 'New Drop', new_drop_path

@@ -1,6 +1,10 @@
 {
+	"name": "izanagi-react",
+	"version": "0.0.1",
+	"private": true,
 	"engines": {
 		"node": "6.9.0",
+		"npm": "4.1.1"
 	},
 	"scripts": {
 		"postinstall": "cd client && yarn install",
@@ -9,5 +13,5 @@
 		"build:production": "cd client && yarn run build:production --silent",
 		"build:development": "cd client && yarn run build:development --silent"
 	},
-	"cacheDirectories": [ "node_modules", "client/node_modules" ]
+	"cacheDirectories": ["node_modules", "client/node_modules"]
 }

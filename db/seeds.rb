@@ -1,3 +1,12 @@
+def find_monster_drop(name)
+	MonsterDrop.joins(:drop).where(drops: { name: name } ).first
+end
+
+def create_monster_drop_record(record, monster_drop, count)
+	MonsterDropRecord.create(monster_drop: monster_drop, record: record, count: count)
+end
+
+
 unless Drop.any?
 	Drop.create(name: "Bronze Bag")
 	Drop.create(name: "Silver Bag")
@@ -11,6 +20,8 @@ end
 unless Monster.any?
 	m = Monster.create(name: "Treasure Chick")
 	Drop.all.each { |d| MonsterDrop.create(monster: m, drop: d) }
+else
+	m = Monster.find_by(name: "Treasure Chick")
 end
 
 # First sample
@@ -42,12 +53,3 @@ create_monster_drop_record(record, find_monster_drop("Platinum Bag"), 2)
 create_monster_drop_record(record, find_monster_drop("Hoarded Wealth"), 0)
 create_monster_drop_record(record, find_monster_drop("Treasure Box Key"), 4)
 create_monster_drop_record(record, find_monster_drop("Chick Egg Shells"), 9)
-
-
-def find_monster_drop(name)
-	MonsterDrop.joins(:drop).where(drops: { name: name } ).first
-end
-
-def create_monster_drop_record(record, monster_drop, count)
-	MonsterDropRecord.create(monster_drop: monster_drop, record: record, count: count)
-end

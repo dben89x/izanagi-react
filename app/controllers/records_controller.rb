@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
 	before_action :set_record, only: [:show, :edit, :update, :destroy]
+	skip_before_action :verify_authenticity_token
 
 	# GET /records
 	# GET /records.json
@@ -22,6 +23,11 @@ class RecordsController < ApplicationController
 	# GET /records/new
 	def new
 		@record = Record.new
+		monster = Monster.find_by(name: "Treasure Chick")
+		@available_drops = MonsterDrop.where(monster: monster)
+			.collect{|md| md.drop}.pluck(:name)
+
+		@averages = set_averages
 	end
 
 	# GET /records/1/edit
@@ -31,15 +37,26 @@ class RecordsController < ApplicationController
 	# POST /records
 	# POST /records.json
 	def create
+		json = params['json']
 		@record = Record.new(record_params)
+
+		monster = Monster.find_by(name: "Treasure Chick")
+		@record.monster = monster
+		@record.sample_size = json['Bronze Bag']
 
 		respond_to do |format|
 			if @record.save
+				params['json'].each do |drop, count|
+					md = find_monster_drop(drop)
+					mdr = MonsterDropRecord.new(monster_drop: md, record: @record, count: count)
+					puts "mdr: #{mdr.inspect}"
+					mdr.save
+				end
 				format.html { redirect_to @record, notice: 'Record was successfully created.' }
 				format.json { render :show, status: :created, location: @record }
 			else
 				format.html { render :new }
-				format.json { render json: @record.errors, status: :unprocessable_entity }
+				format.json { render json: @record.errors.inspect, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -85,7 +102,7 @@ class RecordsController < ApplicationController
 
 		def set_averages
 			@sample_sizes = Record.all.pluck(:sample_size)
-			@sample_size_sum = @sample_sizes.sum.to_f
+			@sample_size_sum =  @sample_sizes.sum.to_f
 			@average_sample_size = @sample_size_sum / @sample_sizes.size
 
 			@available_drops.collect do |drop|

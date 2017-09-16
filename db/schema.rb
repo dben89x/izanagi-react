@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914065136) do
+ActiveRecord::Schema.define(version: 20170916041627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20170914065136) do
   create_table "monster_drop_records", force: :cascade do |t|
     t.integer  "monster_drop_id"
     t.integer  "record_id"
-    t.integer  "count"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "count",           default: 0, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["monster_drop_id"], name: "index_monster_drop_records_on_monster_drop_id", using: :btree
     t.index ["record_id"], name: "index_monster_drop_records_on_record_id", using: :btree
   end
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20170914065136) do
   create_table "records", force: :cascade do |t|
     t.integer  "monster_id"
     t.string   "uploader"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "sample_size"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "sample_size",     default: 0, null: false
     t.integer  "elapsed_minutes"
     t.index ["monster_id"], name: "index_records_on_monster_id", using: :btree
   end

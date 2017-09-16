@@ -8,19 +8,14 @@ export default class RecordInput extends React.Component {
 		}
 	}
 
-	handleInput =()=> {
-
-	}
-
 	render () {
 
 		return (
-			<input className='record-input'>
-				<label>
-					{this.props.name}
-					<input className="record-input" onChange={(e)=> {this.handleInput(e)}}/>
-				</label>
-			</form>
+			<label className='record-label'>
+				{this.props.name}
+				<br/>
+				<input type='number' pattern="[0-9]{3}" min="0" max="1000" onChange={(e)=> {this.props.handleInput(e, this.props.name)}}/>
+			</label>
 		);
 	}
 }

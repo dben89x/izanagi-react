@@ -12,3 +12,26 @@
 	margin: 20px;
 	background-color: white;
 }
+.new-record-btn {
+	transition: 0.3s;
+	border-radius: 6px;
+	padding: 5px 10px;
+	margin: 10px 0;
+	border: 2px solid rgba(25,88,108,0.9);
+	color: rgba(25,88,108,0.9);
+	background: transparent;
+	cursor: pointer;
+
+	&:hover, &:focus {
+		background: rgba(25,88,108,0.2);
+		border-color: #19586C;
+		color: #19586C;
+	}
+}
+.record-label {
+	input {
+		border-radius: 6px;
+		padding: 5px 10px;
+		margin: 5px 0 ;
+	}
+}

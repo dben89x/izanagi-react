@@ -1,7 +1,8 @@
 %p#notice= notice
 %h1 Records
--# = link_to 'New Record', new_record_path
--# =react_component "RecordForm", props: {recordInputs: @available_drops}, prerender: false
+
+=link_to 'New Record', new_record_path, class: 'new-record-btn'
+
 %br
 .record
 	%h4

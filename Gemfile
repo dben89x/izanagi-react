@@ -18,9 +18,11 @@ gem 'webpack-rails', '~> 0.9.10'
 gem 'react_on_rails', '~> 6.8.1'
 gem 'haml'
 gem 'erb2haml'
+gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.5'
 
 

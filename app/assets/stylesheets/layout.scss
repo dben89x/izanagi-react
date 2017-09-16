@@ -1,3 +1,10 @@
 body {
 	background-color: #d2d2d2;
 }
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+		background: transparent;
+	}
+}

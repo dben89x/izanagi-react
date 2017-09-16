@@ -11,7 +11,4 @@
 		"node_modules",
 		"client/node_modules"
 	],
-	"dependencies": {
-		"react-on-rails": "^9.0.2"
-	}
 }
